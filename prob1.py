@@ -5,10 +5,8 @@ import argparse
 
 def sum_of_multiples(divisor1, divisor2, limit):
     """Find sum of all multiples of divisor1 or divisor2 below some limit."""
-    multiples = []
-    for n in range(1, limit):
-        if (n % divisor1 == 0) or (n % divisor2 == 0):
-            multiples.append(n)
+    multiples = [n for n in range(1, limit) if n % divisor1 == 0 or
+                 n % divisor2 == 0]
     print(multiples)
     return sum(multiples)
 
