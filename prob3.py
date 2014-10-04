@@ -6,7 +6,7 @@ def greatest_prime_factor(n):
     divisor = 2
     while divisor < n:
         if n % divisor == 0:
-            n = int(n / divisor)
+            n = n / divisor
             divisor = 1
         # Python doesn't have an increment operator!
         divisor += 1
