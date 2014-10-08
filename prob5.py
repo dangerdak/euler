@@ -18,10 +18,10 @@ def factorise(n):
     return factors
 
 
-def freq_count(ls):
+def freq_count(items):
     """Count frequency of items in a list. Return an item: count dictionary."""
     d = {}
-    for item in ls:
+    for item in items:
         d[item] = d.get(item, 0) + 1
     return d
 
@@ -32,10 +32,10 @@ def common_multiple(lower, upper):
     for i in range(lower, upper):
         factors = factorise(i)
         occurences = freq_count(factors)
-        for k, v in occurences.items():
-            if occurences[k] > max_occurences.get(k, 0):
-                max_occurences[k] = occurences[k]
-    total = np.prod([k**v for k, v in max_occurences.items()])
+        for value, count in occurences.items():
+            if count > max_occurences.get(value, 0):
+                max_occurences[value] = count
+    total = np.prod([value**count for value, count in max_occurences.items()])
 
     return total
 
