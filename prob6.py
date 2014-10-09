@@ -2,14 +2,13 @@
 # Sum square difference
 
 from sys import argv
+import numpy as np
 
 
 def sum_squares(lower, upper):
     """Return the sum of the squares of the numbers between lower and upper."""
-    total = 0
-    # Don't use list comp as resulting list unneeded
-    for i in range(lower, upper):
-        total += i**2
+    numbers = np.arange(lower, upper)
+    total = np.dot(numbers, numbers)
 
     return total
 

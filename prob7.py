@@ -1,15 +1,11 @@
 # Euler Project Problem 7
 # 10001st prime number
 from sys import argv
-import math
 
 
-def is_prime(n):
+def is_prime(n, lesser_primes):
     """Returns true if n is a prime, otherwise false."""
-    # Ensure checks are made upto half of n
-    limit = math.ceil(n/2) + 1
-    # Plus one for cases when n = 2 or n = 4
-    for divisor in range(2, limit):
+    for divisor in lesser_primes:
         if n % divisor == 0:
             return False
     return True
@@ -17,13 +13,13 @@ def is_prime(n):
 
 def nth_prime(nth):
     """Returns nth prime number."""
-    candidate = 1
-    n_primes = 0
-    while n_primes < nth:
+    primes = [2]
+    candidate = 3
+    while len(primes) < nth:
+        if is_prime(candidate, primes):
+            primes.append(candidate)
         candidate += 1
-        if is_prime(candidate):
-            n_primes += 1
-    return candidate
+    return primes[-1]
 
 
 
