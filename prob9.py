@@ -11,5 +11,12 @@ def pythag_triplet(total):
             if a**2 + b**2 == c**2:
                 return a, b, c
 
+
+def product(*args):
+    prod = 1
+    for value in args:
+        prod *= value
+    return prod
+
 if __name__ == '__main__':
-    print(pythag_triplet(1000))
+    print(product(*pythag_triplet(1000)))
