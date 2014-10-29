@@ -36,17 +36,14 @@ def max_array_prod(n, my_array):
     max_prod = 0
     for my_list in my_array:
         if len(my_list) >= n:
-            print(len(my_list))
             prod = max_list_prod(n, my_list)
             max_prod = max([max_prod, prod])
     for my_list in transpose(my_array):
         if len(my_list) >= n:
-            print(len(my_list))
             prod = max_list_prod(n, my_list)
             max_prod = max([max_prod, prod])
     for my_list in diagonals(my_array):
         if len(my_list) >= n:
-            print(len(my_list))
             prod = max_list_prod(n, my_list)
             max_prod = max([max_prod, prod])
     return max_prod
@@ -92,12 +89,11 @@ def diagonals(array):
     new_array.append(new_list)
 
     # Minor LHS
-    for max_index in range(length - 1, -1, -1):
+    for max_index in range(length - 1, 0, -1):
         new_list = []
         j = max_index - 1
         for i in range(max_index):
             new_list.append(array[i][j])
-            print(new_list)
             j -= 1
         new_array.append(new_list)
 
@@ -108,17 +104,14 @@ def diagonals(array):
         for i in range(min_index, length):
             new_list.append(array[i][j])
             j -= 1
-        # TODO Why is an empty list added to the array?
-        print(new_list)
         new_array.append(new_list)
 
-    print(new_array)
     return new_array
 
 
 if __name__ == '__main__':
-    g = import_grid('grid-p11.txt')
-    # g = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
+    # g = import_grid('grid-p11.txt')
+    g = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
     m = max_array_prod(4, g)
 
     print(m)
