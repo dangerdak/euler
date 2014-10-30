@@ -27,7 +27,7 @@ def max_list_prod(n, my_list):
     # Slicing exclusive of final index
     for index in range(len(my_list) - n + 1):
         prod = list_product(my_list[index:index + n])
-        max_prod = max([max_prod, prod])
+        max_prod = max(max_prod, prod)
     return max_prod
 
 
@@ -37,15 +37,15 @@ def max_array_prod(n, my_array):
     for my_list in my_array:
         if len(my_list) >= n:
             prod = max_list_prod(n, my_list)
-            max_prod = max([max_prod, prod])
+            max_prod = max(max_prod, prod)
     for my_list in transpose(my_array):
         if len(my_list) >= n:
             prod = max_list_prod(n, my_list)
-            max_prod = max([max_prod, prod])
+            max_prod = max(max_prod, prod)
     for my_list in diagonals(my_array):
         if len(my_list) >= n:
             prod = max_list_prod(n, my_list)
-            max_prod = max([max_prod, prod])
+            max_prod = max(max_prod, prod)
     return max_prod
 
 
